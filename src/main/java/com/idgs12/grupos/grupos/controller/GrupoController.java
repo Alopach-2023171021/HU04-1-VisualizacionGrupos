@@ -66,6 +66,13 @@ public class GrupoController {
         GruposEntity nuevoGrupo = grupoService.crearGrupo(grupoDTO);
         return ResponseEntity.ok(nuevoGrupo);
     }
+
+    // Actualizar un grupo existente
+    @PutMapping("/{id}")
+    public ResponseEntity<GruposEntity> actualizarGrupo(@PathVariable int id, @RequestBody GrupoDTO grupoDTO) {
+        grupoDTO.setId(id);
+        GruposEntity grupoActualizado = grupoService.actualizarGrupo(grupoDTO);
+        return ResponseEntity.ok(grupoActualizado);
     //Funcionalidad de habilitar -- Maria Fernanda Rosas Briones IDGS12
     @PutMapping("/habilitar/{id}")
     public ResponseEntity<String> habilitarGrupo(@PathVariable Integer id) {

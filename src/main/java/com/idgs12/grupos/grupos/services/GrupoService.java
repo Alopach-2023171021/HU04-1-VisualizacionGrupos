@@ -83,6 +83,16 @@ public class GrupoService {
     public boolean habilitarGrupo(Integer id) {
         GruposEntity grupo = grupoRepository.findById(id).orElse(null);
 
+    // Actualizar grupo
+    @Transactional
+    public GruposEntity actualizarGrupo(GrupoDTO grupoDTO) {
+        GruposEntity grupo = grupoRepository.findById(grupoDTO.getId()).orElse(new GruposEntity());
+        grupo.setNombre(grupoDTO.getNombre());
+        grupo.setCuatrimestre(grupoDTO.getCuatrimestre());
+        grupo.setEstado(grupoDTO.getEstado());
+        return grupoRepository.save(grupo);
+    }
+
         if (grupo == null) {
             return false; 
         }
