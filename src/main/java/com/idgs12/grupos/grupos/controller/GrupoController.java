@@ -100,4 +100,5 @@ public class GrupoController {
 
         return ResponseEntity.ok("Grupo habilitado correctamente.");
     }
+    
 }
